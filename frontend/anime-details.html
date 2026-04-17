@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anime Details</title>
+    <link rel="stylesheet" href="anime-details.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <button class="menu-button" onclick="openSidebar()">☰</button>
+            <a href="index.html" class="logo-title">
+                <img src="C:\Users\palak anand\OneDrive\Desktop\renders\Blue and Magenta Gradient Modern Concert Event Desktop Prototype.png"
+                     alt="Otaku Helper Logo" class="logo">
+                <h1>Otaku Helper</h1>
+            </a>
+
+        </nav>
+    </header>
+
+     <!-- Sidebar -->
+<div id="sidebar" class="sidebar">
+    <button class="close-btn" onclick="closeSidebar()">×</button>
+    <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="genre.html">Genre</a></li>
+        <li><a href="quiz.html">Quiz</a></li>
+        <li><a href="Threads.html">Threads</a></li>
+        <li><a href="#" id="randomAnimeLink">Random</a></li>
+        <li><a href="analytics.html">Otaku Nexus</a></li>
+        <li><a href="profile.html">Profile</a></li>
+    </ul>
+</div>
+
+
+    <div class="container">
+       
+        
+        <div id="anime-details" class="detail-container">
+            <div class="loading">Loading anime details...</div>
+        </div>
+    </div>
+    <script>
+        function openSidebar() {
+            document.getElementById("sidebar").style.width = "250px";
+        }
+    
+        function closeSidebar() {
+            document.getElementById("sidebar").style.width = "0";
+        }
+
+    // Add event listener for random anime link
+document.addEventListener('DOMContentLoaded', function() {
+    document.getElementById('randomAnimeLink').addEventListener('click', function(e) {
+        e.preventDefault();
+        fetchRandomAnime();
+    });
+});
+
+function fetchRandomAnime() {
+    // Show loading state (optional)
+    document.body.style.cursor = 'wait';
+    
+    fetch('http://localhost:5000/api/random')
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            return response.json();
+        })
+        .then(anime => {
+            // Get the anime ID or generate one if needed
+            const animeId = anime._id || Math.floor(Math.random() * 10000);
+            
+            // Store the anime data in localStorage for use on the details page
+            localStorage.setItem('randomAnime', JSON.stringify(anime));
+            
+            // Redirect to the anime details page with the ID
+            window.location.href = `anime-details.html?id=random`;
+        })
+        .catch(error => {
+            console.error('Error fetching random anime:', error);
+        })
+        .finally(() => {
+            // Reset cursor
+            document.body.style.cursor = 'default';
+        });
+}
+    </script>
+    
+    <script src="details.js"></script>
+    <script src="likes.js"></script>
+</body>
+</html>

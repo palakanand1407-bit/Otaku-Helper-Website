@@ -1,0 +1,232 @@
+
+/* General page styling */
+body {
+    /* Background gradient with anime-inspired colors */
+  background: linear-gradient(90deg, #5b0043, #48006f, #7a4bf1);
+  color: #ffffff;
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  }
+  
+  /* Header section */
+  header {
+  background-color: #410046;
+  padding: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  }
+  
+  /* Navigation Bar */
+  nav {
+    display: flex;               /* allows flex layout for children */
+    align-items: center;         /* vertically centers items */
+    justify-content: flex-start; /* aligns content to the left */
+    padding: 0 20px;
+  }
+  
+  /* Menu button (for mobile navigation in the future) */
+  .menu-button {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 24px;
+  cursor: pointer;
+  }
+  
+  /* Logo and Title Container */
+  .logo-title {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: white;
+  text-decoration: none;
+  }
+  
+  /* Logo Styling */
+  .logo {
+  width: 70px; /* Increased size */
+  height: 70px;
+  }
+  
+  /* Website title (Otaku Helper) */
+  .logo-title h1 {
+  font-size: 30px;
+  margin: 0;
+  }
+  
+  /* Navigation Links */
+  nav ul {
+  list-style: none;
+  display: flex;
+  gap: 140px;
+  padding: 10;
+  margin: 0; /* Ensures items wrap properly if needed */
+  justify-content: center; /* Centers navigation items */
+  }
+  
+  /* Ensure watchlist is in one line */
+  nav ul li {
+  white-space: nowrap; /* Prevents wrapping of items */
+  }
+  
+  /* Navigation Link Styling */
+  nav ul li a {
+  text-decoration: none;
+  color: white;
+  font-size: 18px;
+  transition: 0.3s;
+  }
+  
+  /* Navigation Hover Effect */
+  nav ul li a:hover {
+  color: #ff6b81;
+  }
+
+
+.anime-detail-card {
+    display: flex;
+    justify-content: space-between;
+    background: #410046;
+    color: white;
+    padding: 30px;
+    border-radius: 20px;
+    margin: 40px auto;
+    max-width: 90%;
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.3);
+}
+
+.details-left {
+    flex: 1;
+    padding-right: 30px;
+}
+
+.details-left h1 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+}
+
+.details-left p {
+    margin-bottom: 20px;
+    font-size: 1.1em;
+    line-height: 1.6;
+}
+
+
+.anime-info {
+    margin-top: 25px;
+    list-style: none;
+    padding: 0;
+    font-size: 1em;
+}
+
+.anime-info li {
+    margin-bottom: 8px;
+}
+
+.details-right {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.details-right img {
+    border-radius: 20px;
+    width: 300px;
+    height: auto;
+    object-fit: contain;
+}
+
+
+/* Sidebar Styling */
+.sidebar {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: rgba(44, 0, 53, 0.95);
+    overflow-x: hidden;
+    transition: 0.3s;
+    padding-top: 60px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    z-index: 1000; /* Makes sidebar appear on top of everything */
+  }
+  
+  /* Adjust search bar position so it doesn't overlap */
+  .search-container {
+    position: relative; /* Ensures search bar stays in place */
+    z-index: 1; /* Keeps it below the sidebar */
+  }
+  
+  /* Sidebar links */
+  .sidebar ul {
+    list-style-type: none;
+    padding: 0;
+    width: 100%;
+    text-align: center;
+  }
+  
+  .sidebar ul li {
+    padding: 15px;
+    width: 100%;
+  }
+  
+  .sidebar ul li a {
+    text-decoration: none;
+    font-size: 20px;
+    color: white;
+    display: block;
+    transition: 0.3s;
+  }
+  
+  .sidebar ul li a:hover {
+    background: rgba(255, 255, 255, 0.2);
+  }
+  
+  /* Close button */
+  .close-btn {
+    position: absolute;
+    top: 10px;
+    right: 25px;
+    font-size: 36px;
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+  }
+
+  .anime-detail-card {
+    display: flex;
+    justify-content: space-between;
+    align-items: center; /* This centers items vertically */
+    background: #410046;
+    color: white;
+    padding: 30px;
+    border-radius: 20px;
+    margin: 40px auto;
+    max-width: 90%;
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.3);
+  }
+
+  .detail-like-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(65, 0, 70, 0.8);
+    color: white;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 20px;
+    padding: 8px 16px;
+    margin: 15px 0;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.detail-like-btn:hover {
+    background: rgba(100, 0, 110, 0.8);
+    transform: scale(1.05);
+}

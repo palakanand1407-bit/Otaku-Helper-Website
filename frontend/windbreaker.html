@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anime Details</title>
+    <link rel="stylesheet" href="windbreaker.css">
+</head>
+<body>
+
+    <header>
+        <nav>
+            <button class="menu-button" onclick="openSidebar()">☰</button>
+            <a href="otakuhelper.html" class="logo-title">
+                <img src="C:\Users\palak anand\OneDrive\Desktop\renders\Blue and Magenta Gradient Modern Concert Event Desktop Prototype.png" 
+                     alt="Otaku Helper Logo" class="logo">
+                <h1>Otaku Helper</h1>
+            </a>
+            
+          
+        </nav>
+    </header>
+
+    <!-- Sidebar -->
+<div id="sidebar" class="sidebar">
+    <button class="close-btn" onclick="closeSidebar()">×</button>
+    <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="onepiece.html">Random</a></li>
+        <li><a href="genre.html">Genre</a></li>
+        <li><a href="quiz.html">Quiz</a></li>
+        <li><a href="analytics.html">Otaku Nexus</a></li>
+        <li><a href="profile.html">Profile</a></li>
+    </ul>
+</div>
+
+
+    <main>
+        <div class="anime-container">
+            <div class="anime-card">
+                <!-- Anime Poster Inside a Card -->
+                <div class="anime-poster">
+                    <img src="https://cdn.noitatnemucod.net/thumbnail/300x400/100/d9bb23228e5a641b5a3e9386382dae3a.jpg" alt="Wind Breaker Poster">
+                </div>
+                <div class="anime-info">
+                    <h1 class="anime-title">Wind Breaker</h1>
+                    <p>Jay, a high school student, leads a double life as a skilled downhill biker. Balancing school and extreme sports, he navigates friendships, rivalries, and adrenaline-packed races. "Wind Breaker" captures the thrill of pushing limits while exploring the bonds formed through shared passion for biking.</p>
+
+
+                    <div class="buttons">
+                        <button class="watch-now">▶ Watch Now</button>
+                        <button class="add-watchlist">+ Add to Watchlist</button>
+                    </div>
+                    <div class="anime-details">
+                        <p><strong>Episodes:</strong> 24</p>
+                        <p><strong>Japanese:</strong> ウィンドブレイカー</p>
+                        <p><strong>Synonyms:</strong> Wind Breaker</p>
+                        <p><strong>Premiered:</strong> Spring 2023</p>
+                        <p><strong>Duration:</strong> 24 min per episode</p>
+                        <p><strong>Status:</strong> Ongoing</p>
+                        <p><strong>Genre:</strong> Action, Adventure, Fantasy</p>
+                        <p><strong>Studios:</strong> CloverWorks</p>
+                        <p><strong>Producer:</strong> Aniplex</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        function openSidebar() {
+            document.getElementById("sidebar").style.width = "250px";
+        }
+    
+        function closeSidebar() {
+            document.getElementById("sidebar").style.width = "0";
+        }
+    </script>
+
+
+</body>
+</html>

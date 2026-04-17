@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Otaku Helper - Genres</title>
+    <link rel="stylesheet" href="genere.css">
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <nav>
+            <button class="menu-button" onclick="openSidebar()">☰</button>
+            <a href="index.html" class="logo-title">
+                <img src="C:\Users\palak anand\OneDrive\Desktop\renders\Blue and Magenta Gradient Modern Concert Event Desktop Prototype.png"
+                     alt="Otaku Helper Logo" class="logo">
+                <h1>Otaku Helper</h1>
+            </a>
+        </nav>
+    </header>
+
+    <!-- Sidebar -->
+    <div id="sidebar" class="sidebar">
+        <button class="close-btn" onclick="closeSidebar()">×</button>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="genre.html">Genre</a></li>
+            <li><a href="quiz.html">Quiz</a></li>
+            <li><a href="Threads.html">Threads</a></li>
+            <li><a href="#" id="randomAnimeLink">Random</a></li>
+            <li><a href="analytics.html">Otaku Nexus</a></li>
+            <li><a href="profile.html">Profile</a></li>
+        </ul>
+    </div>
+
+    <section class="hero">
+        <div class="search-container">
+            <input type="text" id="search" placeholder="Search by genre, title, or mood...">
+            <button onclick="searchAnime()">Search</button>
+        </div>
+    </section>
++    
+
+    <section class="anime-section">
+        <h2>G E N R E S</h2>
+        <div class="anime-grid">
+            <!-- Genre Cards -->
+            <a href="#action-section">
+                <div class="anime-card">Action</div>
+            </a>
+            <a href="#romance-section">
+                <div class="anime-card">Romance</div>
+            </a>
+            <a href="#comedy-section">
+                <div class="anime-card">Comedy</div>
+            </a>
+            <a href="#adventure-section">
+                <div class="anime-card">Adventure</div>
+            </a>
+            <a href="#horror-section">
+                <div class="anime-card">Horror</div>
+            </a>
+
+            <a href="#sci-fi-section">
+                <div class="anime-card">Sci-Fi</div>
+            </a>
+            <a href="#fantasy-section">
+                <div class="anime-card">Fantasy</div>
+            </a>
+            <a href="#drama-section">
+                <div class="anime-card">Drama</div>
+            </a>
+            <a href="#slice-of-life-section">
+                <div class="anime-card">Slice of Life</div>
+            </a>
+            <a href="#mystery-section">
+                <div class="anime-card">Mystery</div>
+            </a>
+            <a href="#supernatural-section">
+                <div class="anime-card">Supernatural</div>
+            </a>
+            <a href="#girls-love-section">
+                <div class="anime-card">Girls Love</div>
+            </a>
+            
+        </div>
+    </section>
+
+    <!-- Action Anime Section -->
+    <section id="action-section" class="anime-section">
+        <h2>Action Anime</h2>
+        <div class="anime-grid">
+            <div class="loading">Loading anime...</div>
+        </div>
+    </section>
+
+    <!-- Romance Anime Section -->
+    <section id="romance-section" class="anime-section">
+        <h2>Romance Anime</h2>
+        <div class="anime-grid">
+            <div class="loading">Loading anime...</div>
+        </div>
+    </section>
+
+    <!-- Horror Anime Section -->
+    <section id="horror-section" class="anime-section">
+        <h2>Horror Anime</h2>
+        <div class="anime-grid">
+            <div class="loading">Loading anime...</div>
+        </div>
+    </section>
+
+    <!-- Comedy Anime Section -->
+    <section id="comedy-section" class="anime-section">
+        <h2>Comedy Anime</h2>
+        <div class="anime-grid">
+            <div class="loading">Loading anime...</div>
+        </div>
+    </section>
+
+    <section id="adventure-section" class="anime-section">
+        <h2>Adventure Anime</h2>
+        <div class="anime-grid">
+            <div class="loading">Loading anime...</div>
+        </div>
+    </section>
+
+    <section id="sci-fi-section" class="anime-section">
+        <h2>Sci-Fi Anime</h2>
+        <div class="anime-grid">
+            <div class="loading">Loading anime...</div>
+        </div>
+    </section>
+
+    <section id="fantasy-section" class="anime-section">
+        <h2>Fantasy Anime</h2>
+        <div class="anime-grid">
+            <div class="loading">Loading anime...</div>
+        </div>
+    </section>
+
+    <section id="drama-section" class="anime-section">
+        <h2>Drama Anime</h2>
+        <div class="anime-grid">
+            <div class="loading">Loading anime...</div>
+        </div>
+    </section>
+
+    <section id="mystery-section" class="anime-section">
+        <h2>Mystery Anime</h2>
+        <div class="anime-grid">
+            <div class="loading">Loading anime...</div>
+        </div>
+    </section>
+
+    <section id="slice-of-life-section" class="anime-section">
+        <h2>Slice of Life Anime</h2>
+        <div class="anime-grid">
+            <div class="loading">Loading anime...</div>
+        </div>
+    </section>
+
+    <section id="supernatural-section" class="anime-section">
+        <h2>Supernatural Anime</h2>
+        <div class="anime-grid">
+            <div class="loading">Loading anime...</div>
+        </div>
+    </section>
+
+    <section id="girls-love-section" class="anime-section">
+        <h2>Girls Love Anime</h2>
+        <div class="anime-grid">
+            <div class="loading">Loading anime...</div>
+        </div>
+    </section>
+
+    <script>
+        if (!document.getElementById('placeholder-image')) {
+            const img = new Image();
+            img.src = 'placeholder.jpg';
+            img.id = 'placeholder-image';
+            img.style.display = 'none';
+            document.body.appendChild(img);
+        }
+
+        function openSidebar() {
+            document.getElementById("sidebar").style.width = "250px";
+        }
+    
+        function closeSidebar() {
+            document.getElementById("sidebar").style.width = "0";
+        }
+    </script>
+   
+    <script src="genre.js"></script>
+</body>
+</html>

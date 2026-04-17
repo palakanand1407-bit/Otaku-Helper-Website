@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Favorites - Otaku Helper</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <button class="menu-button" onclick="openSidebar()">☰</button>
+            <a href="index.html" class="logo-title">
+                <img src="C:\Users\palak anand\OneDrive\Desktop\renders\Blue and Magenta Gradient Modern Concert Event Desktop Prototype.png"
+                     alt="Otaku Helper Logo" class="logo">
+                <h1>Otaku Helper</h1>
+            </a>
+        </nav>
+    </header>
+
+    <!-- Sidebar -->
+    <div id="sidebar" class="sidebar">
+        <button class="close-btn" onclick="closeSidebar()">×</button>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="genre.html">Genre</a></li>
+            <li><a href="quiz.html">Quiz</a></li>
+            <li><a href="Threads.html">Threads</a></li>
+            <li><a href="#" id="randomAnimeLink">Random</a></li>
+            <li><a href="analytics.html">Otaku Nexus</a></li>
+            <li><a href="profile.html">Profile</a></li>
+            <li><a href="favorites.html" class="active">My Favorites</a></li>
+        </ul>
+    </div>
+
+    <div class="container">
+        <h2 class="section-title">My Favorite Anime</h2>
+        
+        <div id="liked-anime-grid" class="anime-grid">
+            <div class="loading">Loading your favorites...</div>
+        </div>
+    </div>
+
+    <script>
+        function openSidebar() {
+            document.getElementById("sidebar").style.width = "250px";
+        }
+    
+        function closeSidebar() {
+            document.getElementById("sidebar").style.width = "0";
+        }
+    </script>
+
+    <script src="likes.js"></script>
+    <script src="favorites.js"></script>
+    
+</body>
+</html>

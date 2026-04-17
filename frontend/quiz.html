@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Otaku Helper | Anime Genre Quiz</title>
+    <link rel="stylesheet" href="otakuhelper.css">
+    <link rel="stylesheet" href="quiz.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <nav>
+            <button class="menu-button" onclick="openSidebar()">☰</button>
+            <a href="index.html" class="logo-title">
+                <img src="C:\Users\palak anand\OneDrive\Desktop\renders\Blue and Magenta Gradient Modern Concert Event Desktop Prototype.png"
+                     alt="Otaku Helper Logo" class="logo">
+                <h1>Otaku Helper</h1>
+            </a>
+            
+        </nav>
+    </header>
+
+    <!-- Sidebar -->
+    <div id="sidebar" class="sidebar">
+        <button class="close-btn" onclick="closeSidebar()">×</button>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="genre.html">Genre</a></li>
+            <li><a href="quiz.html">Quiz</a></li>
+            <li><a href="Threads.html">Threads</a></li>
+            <li><a href="#" id="randomAnimeLink">Random</a></li>
+            <li><a href="analytics.html">Otaku Nexus</a></li>
+            <li><a href="profile.html">Profile</a></li>
+        </ul>
+    </div>
+
+    <!-- Quiz Container -->
+    <div class="quiz-container">
+        <div class="quiz-header">
+            <h1><i class="fas fa-question-circle"></i> Anime Personality Quiz</h1>
+            <p>Discover your perfect anime genre match!</p>
+        </div>
+
+        <div class="quiz-body" id="quizBody">
+            <!-- Questions will be injected here by JavaScript -->
+            <div class="loading">
+                <i class="fas fa-spinner fa-pulse"></i>
+                <p>Loading quiz questions...</p>
+            </div>
+        </div>
+
+        <div class="quiz-submit">
+            <button id="submitQuiz" class="submit-btn">Get My Results <i class="fas fa-chevron-right"></i></button>
+        </div>
+    </div>
+
+    <!-- Result Modal -->
+    <div class="result-modal" id="resultModal">
+        <div class="result-content">
+            <span class="close-btn" id="closeResult">&times;</span>
+            <div class="result-header">
+                <h2>Your Anime Genre Match Is...</h2>
+                <div class="genre-icon" id="genreIcon"></div>
+            </div>
+            <div class="result-body">
+                <h3 id="resultGenre">Genre</h3>
+                <p id="resultDescription">Description</p>
+                <div class="genre-chart">
+                    <h4>Your Genre Breakdown:</h4>
+                    <div id="genreBreakdown" class="genre-breakdown"></div>
+                </div>
+                <div class="recommendations">
+                    <h4>Recommended Anime:</h4>
+                    <ul id="animeRecommendations"></ul>
+                </div>
+            </div>
+            <button id="retakeQuiz" class="retake-btn">Take Quiz Again</button>
+        </div>
+    </div>
+
+    
+    <script>
+        function openSidebar() {
+            document.getElementById("sidebar").style.width = "250px";
+        }
+    
+        function closeSidebar() {
+            document.getElementById("sidebar").style.width = "0";
+        }
+    </script>
+    <script src="quiz.js"></script>
+</body>
+</html>

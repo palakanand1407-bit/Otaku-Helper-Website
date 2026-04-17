@@ -1,0 +1,273 @@
+/* General page styling */
+body {
+    /* Background gradient with anime-inspired colors */
+  background: linear-gradient(90deg, #5b0043, #48006f, #7a4bf1);
+  color: #ffffff;
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+/* Header section */
+header {
+  background-color: #410046;
+  padding: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* Navigation Bar */
+nav {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  justify-content: space-between;
+}
+
+/* Menu button (for mobile navigation in the future) */
+.menu-button {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+/* Logo and Title Container */
+.logo-title {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* Logo Styling */
+.logo {
+  width: 70px; /* Increased size */
+  height: 70px;
+}
+
+/* Website title (Otaku Helper) */
+.logo-title h1 {
+  font-size: 30px;
+  margin: 0;
+}
+
+/* Navigation Links */
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 140px;
+  padding: 10;
+  margin: 0; /* Ensures items wrap properly if needed */
+  justify-content: center; /* Centers navigation items */
+}
+
+/* Ensure watchlist is in one line */
+nav ul li {
+  white-space: nowrap; /* Prevents wrapping of items */
+}
+
+/* Navigation Link Styling */
+nav ul li a {
+  text-decoration: none;
+  color: white;
+  font-size: 18px;
+  transition: 0.3s;
+}
+
+/* Navigation Hover Effect */
+nav ul li a:hover {
+  color: #ff6b81;
+}
+
+/* Hero Section (Main Banner with Search Bar) */
+.hero {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 15vh;
+  background: url('https://cdn.appuals.com/wp-content/uploads/2023/04/wallpapersden.com_jujutsu-kaisen-hd-cool_1920x1229.jpg.webpg') no-repeat center center/cover;
+  position: relative;
+}
+
+/* Search Bar Styling */
+.search-container {
+  display: flex;
+  background: rgba(255, 255, 255, 0.699);
+  padding: 15px;
+  border-radius: 25px;
+  width: 90%;
+  max-width: 3000px;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+/* Search Input Field */
+.search-container input {
+  border: none;
+  padding: 12px;
+  font-size: 18px;
+  background: transparent;
+  color: white;
+  outline: none;
+  flex-grow: 1;
+}
+
+/* Search Button */
+.search-container button {
+  background: linear-gradient(45deg, #ff6b81, #3a0ca3);
+  color: white;
+  border: none;
+  padding: 12px 25px;
+  cursor: pointer;
+  border-radius: 25px;
+  transition: 0.3s;
+}
+
+/* Search Button Hover Effect */
+.search-container button:hover {
+  background: linear-gradient(45deg, #3a0ca3, #ff6b81);
+}
+
+/* Anime Sections (Trending, Popular, Genres) */
+.anime-section {
+  padding: 40px;
+}
+
+/* Section Titles */
+.anime-section h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+/* Anime Grid Layout */
+.anime-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+  justify-items: center;
+}
+
+/* Fix for clickable anime cards */
+a {
+  text-decoration: none;  /* Removes the underline */
+  color: inherit;         /* Keeps the original text color */
+  display: inline-block;  /* Ensures the card doesn't shrink */
+  width: 100%;  /* Allows the card to retain its original width */
+}
+
+/* Ensure the card maintains its original structure */
+.anime-card {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+  transition: transform 0.3s;
+  width: 85%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Anime Card Images */
+.anime-card img {
+  width: 80%;
+  border-radius: 10px;
+  height: 250px;
+  object-fit: cover;
+}
+
+/* Anime Card Hover Effect */
+.anime-card:hover {
+  transform: scale(1.05);
+}
+
+/* Anime Information */
+.anime-info {
+  margin-top: 10px;
+}
+
+/* Watch Now Button */
+.watch-now-button {
+  background: linear-gradient(45deg, #8E44AD, #4A90E2); /* Blue to Purple gradient */
+  color: white;
+  border: none;
+  padding: 10px 16px;
+  font-size: 14px;
+  font-weight: bold;
+  cursor: pointer;
+  border-radius: 25px; /* Makes the edges round */
+  margin-top: 5px;
+  transition: background 0.3s, transform 0.2s;
+}
+
+/* Button Hover Effect */
+.watch-now-button:hover {
+  background: linear-gradient(45deg, #3B78D8, #732D91); /* Slightly darker gradient on hover */
+  transform: scale(1.05); /* Slight pop effect on hover */
+}
+
+/* Sidebar Styling */
+.sidebar {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: rgba(44, 0, 53, 0.95);
+  overflow-x: hidden;
+  transition: 0.3s;
+  padding-top: 60px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: 1000; /* Makes sidebar appear on top of everything */
+}
+
+/* Adjust search bar position so it doesn't overlap */
+.search-container {
+  position: relative; /* Ensures search bar stays in place */
+  z-index: 1; /* Keeps it below the sidebar */
+}
+
+/* Sidebar links */
+.sidebar ul {
+  list-style-type: none;
+  padding: 0;
+  width: 100%;
+  text-align: center;
+}
+
+.sidebar ul li {
+  padding: 15px;
+  width: 100%;
+}
+
+.sidebar ul li a {
+  text-decoration: none;
+  font-size: 20px;
+  color: white;
+  display: block;
+  transition: 0.3s;
+}
+
+.sidebar ul li a:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+/* Close button */
+.close-btn {
+  position: absolute;
+  top: 10px;
+  right: 25px;
+  font-size: 36px;
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+}
+
+

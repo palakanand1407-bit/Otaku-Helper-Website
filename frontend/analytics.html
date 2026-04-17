@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Otaku Helper | Anime Analytics</title>
+  <link rel="stylesheet" href="otakuhelper.css">
+  <link rel="stylesheet" href="analytics.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+  <!-- Header Section -->
+  <header>
+    <nav>
+        <button class="menu-button" onclick="openSidebar()">☰</button>
+        <a href="index.html" class="logo-title">
+            <img src="C:\Users\palak anand\OneDrive\Desktop\renders\Blue and Magenta Gradient Modern Concert Event Desktop Prototype.png" 
+                 alt="Otaku Helper Logo" class="logo">
+            <h1>Otaku Helper</h1>
+        </a>
+
+    </nav>
+</header>
+
+  <!-- Sidebar -->
+<div id="sidebar" class="sidebar">
+<button class="close-btn" onclick="closeSidebar()">×</button>
+<ul>
+    <li><a href="index.html">Home</a></li>
+    <li><a href="genre.html">Genre</a></li>
+    <li><a href="quiz.html">Quiz</a></li>
+    <li><a href="Threads.html">Threads</a></li>
+    <li><a href="#" id="randomAnimeLink">Random</a></li>
+    <li><a href="analytics.html">Otaku Nexus</a></li>
+    <li><a href="profile.html">Profile</a></li>
+    
+</ul>
+</div>
+
+  <!-- Dashboard content -->
+  <div class="dashboard-container">
+    <header class="dashboard-header">
+      <h1><i class="fas fa-chart-line"></i> Otaku Nexus Analytics</h1>
+      <p class="subtitle">Insights into anime trends and community activity</p>
+    </header>
+
+    <div class="dashboard-grid">
+      <!-- Top Anime Section -->
+      <section class="dashboard-card">
+        <div class="card-header">
+          <h2><i class="fas fa-trophy"></i> Top Ranked Anime</h2>
+          <p class="card-subtitle">Most liked shows this season</p>
+        </div>
+        <div class="ranking-container">
+          <p>Loading top animes...</p>
+        </div>
+      </section>
+
+      <!-- Genre Section -->
+      <section class="dashboard-card">
+        <div class="card-header">
+          <h2><i class="fas fa-chart-pie"></i> Genre Popularity</h2>
+          <p class="card-subtitle">What fans are watching most</p>
+        </div>
+        <div class="chart-container">
+          <div class="pie-chart-container">
+            <p>Loading genre pie chart...</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="favorited-anime-section">
+        <div class="favorited-header">
+          <h2><i class="fas fa-heart"></i> Most Favorited Anime</h2>
+          <p class="card-subtitle">All-time fan favorites </p>
+        </div>
+        <div class="favorited-list">
+          <p>Loading favorites...</p>
+        </div>
+      </section>
+    </div>
+
+    <footer class="dashboard-footer">
+      <div class="update-info">
+        <i class="fas fa-sync-alt"></i> Last updated: <span class="update-time">Just now</span>
+      </div>
+      <div class="data-info">Data refreshes every 15 minutes</div>
+    </footer>
+  </div>
+
+  <!-- Fetch analytics data -->
+  <script>
+    async function fetchAnalytics() {
+      try {
+        // TOP ANIMES
+        const topAnimeRes = await fetch("http://localhost:5000/api/analytics/top-animes");
+        const topAnimes = await topAnimeRes.json();
+
+        const rankingContainer = document.querySelector('.ranking-container');
+        rankingContainer.innerHTML = '';
+
+        if (topAnimes && topAnimes.length > 0) {
+          topAnimes.forEach((anime, index) => {
+            const animeHTML = `
+              <div class="anime-rank">
+                <div class="rank-badge">${index + 1}</div>
+                <div class="rank-info">
+                  <h3>${anime.name}</h3>
+                  <div class="rank-stats">
+                    <span><i class="fas fa-star"></i> ${anime.score}</span>
+                    <span><i class="fas fa-user"></i> ${anime.members}</span>
+                  </div>
+                </div>
+              </div>
+            `;
+            rankingContainer.innerHTML += animeHTML;
+          });
+        } else {
+          rankingContainer.innerHTML = `<p>No anime data available.</p>`;
+        }
+
+        // GENRE CHART
+        const pieChartContainer = document.querySelector('.pie-chart-container');
+        pieChartContainer.innerHTML = `
+          <img src="http://localhost:5000/api/analytics/popular-genres-chart" alt="Genre Popularity" style="max-width: 100%; border-radius: 12px;" />
+        `;
+
+      } catch (err) {
+        console.error("Analytics fetch error:", err);
+        document.querySelector('.ranking-container').innerHTML = `<p>Failed to load top animes.</p>`;
+        document.querySelector('.pie-chart-container').innerHTML = `<p>Failed to load genre pie chart.</p>`;
+      }
+
+      // TOP FAVORITED ANIMES
+const favRes = await fetch("http://localhost:5000/api/analytics/top-favorited-animes");
+const favAnimes = await favRes.json();
+
+const favContainer = document.querySelector('.favorited-list');
+favContainer.innerHTML = '';
+
+if (favAnimes && favAnimes.length > 0) {
+  favAnimes.forEach(anime => {
+    const favHTML = `
+      <div class="favorite-card">
+        <h3>${anime.name}</h3>
+        <div class="favorite-stats">
+          <span><i class="fas fa-heart"></i> ${anime.favorites.toLocaleString()} favorites</span>
+          <span><i class="fas fa-star"></i> Score: ${anime.score}</span>
+          <span><i class="fas fa-users"></i> Members: ${anime.members}</span>
+          
+        </div>
+      </div>
+    `;
+    favContainer.innerHTML += favHTML;
+  });
+} else {
+  favContainer.innerHTML = `<p>No favorited anime data found.</p>`;
+}
+
+    }
+
+    window.onload = fetchAnalytics;
+  </script>
+
+  <script>
+    function openSidebar() {
+        document.getElementById("sidebar").style.width = "250px";
+    }
+
+    function closeSidebar() {
+        document.getElementById("sidebar").style.width = "0";
+    }
+  </script>
+
+  <script>
+    // Set up random anime functionality
+    document.addEventListener('DOMContentLoaded', function() {
+      const randomAnimeLink = document.getElementById('randomAnimeLink');
+      if (randomAnimeLink) {
+        randomAnimeLink.addEventListener('click', function(e) {
+          e.preventDefault();
+          fetchRandomAnime();
+        });
+      }
+    });
+  
+    function fetchRandomAnime() {
+      // Show loading state
+      document.body.style.cursor = 'wait';
+      
+      fetch('http://localhost:5000/api/random')
+        .then(response => {
+          if (!response.ok) {
+            throw new Error('Network response was not ok');
+          }
+          return response.json();
+        })
+        .then(anime => {
+          // Get the anime ID or generate one if needed
+          const animeId = anime._id || Math.floor(Math.random() * 10000);
+          
+          // Store the anime data in localStorage for use on the details page
+          localStorage.setItem('randomAnime', JSON.stringify(anime));
+          
+          // Redirect to the anime details page with the ID
+          window.location.href = `anime-details.html?id=random`;
+        })
+        .catch(error => {
+          console.error('Error fetching random anime:', error);
+          alert('Failed to get a random anime. Please try again.');
+        })
+        .finally(() => {
+          // Reset cursor
+          document.body.style.cursor = 'default';
+        });
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Otaku Helper</title>
+    <link rel="stylesheet" href="welcome.css">
+</head>
+<body>
+
+    <!-- Header Section -->
+    <header>
+        <nav>
+            <button class="menu-button" onclick="openSidebar()">☰</button>
+            <a href="welcomepage.html" class="logo-title">
+                <img src="C:\Users\palak anand\OneDrive\Desktop\renders\Blue and Magenta Gradient Modern Concert Event Desktop Prototype.png" 
+                     alt="Otaku Helper Logo" class="logo">
+                <h1>Otaku Helper</h1>
+            </a>
+        
+        </nav>
+    </header>
+
+    <!-- Sidebar -->
+<div id="sidebar" class="sidebar">
+    <button class="close-btn" onclick="closeSidebar()">×</button>
+    <ul>
+        <li><a href="index.html">Home</a></li>
+
+        <li><a href="login.html">Sign In</a></li>
+    </ul>
+</div>
+
+
+     <!-- Welcome Section -->
+     <section class="welcome-section">
+        <!-- Left Side: Logo, Search Bar, and Features -->
+        <div class="left-section">
+            <a href="index.html" class="clickable-logo-title">
+                <img src="C:\Users\palak anand\OneDrive\Desktop\renders\Blue and Magenta Gradient Modern Concert Event Desktop Prototype.png" 
+                     alt="Otaku Helper Logo" class="logo">
+                <h2>OTAKU HELPER</h2>
+                <p class="welcome-description">Step into a world built for true anime lovers—where every stat tells a story, every quiz reveals a hidden side of you, and every click brings you closer to your next favorite show.</p>
+
+            </a>
+            <div class="search-container">
+                <a href="index.html" class="search-button">Discover Otaku</a>
+            </div>
+        </div>
+        
+
+        <!-- Auto-Scrolling Anime Card -->
+        <div class="anime-carousel">
+            <div class="anime-card-large">
+                <img id="anime-image" src="C:\Users\palak anand\OneDrive\Desktop\renders\Picsart_23-08-27_15-35-28-844.png" alt="Anime Artwork">
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Auto-scroll through 5 anime images every 3 seconds
+        const images = [
+            "C:/Users/palak anand/OneDrive/Desktop/renders/Picsart_23-08-27_15-30-43-489.png",
+            "C:/Users/palak anand/OneDrive/Desktop/renders/Picsart_23-08-27_15-38-22-685.png",
+            "C:/Users/palak anand/OneDrive/Desktop/renders/Picsart_23-08-27_15-55-27-034.png",
+            "C:/Users/palak anand/OneDrive/Desktop/renders/luffy_gear_5_by_johnnyazad_render_png__by_xanccount_dgcsucq.png",
+            "C:/Users/palak anand/OneDrive/Desktop/renders/Picsart_23-08-27_16-01-26-794.png",
+            "C:/Users/palak anand/OneDrive/Desktop/renders/Picsart_23-08-27_16-02-54-280.png"
+        ];
+        let index = 0;
+        function changeImage() {
+            index = (index + 1) % images.length;
+            document.getElementById("anime-image").src = images[index];
+        }
+        setInterval(changeImage, 3000); // Change image every 3 seconds
+    </script>
+
+<script>
+    function openSidebar() {
+        document.getElementById("sidebar").style.width = "250px";
+    }
+
+    function closeSidebar() {
+        document.getElementById("sidebar").style.width = "0";
+    }
+</script>
+
+
+</body>
+</html>

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Otaku Helper</title>
+    <link rel="stylesheet" href="login.css">
+</head>
+<body>
+
+    <!-- Header Section -->
+    <header>
+        <a href="index.html" class="logo-title h1">
+            <img src="C:\Users\palak anand\OneDrive\Desktop\renders\Blue and Magenta Gradient Modern Concert Event Desktop Prototype.png"
+                 alt="Otaku Helper Logo" class="logo">
+            <h1>Otaku Helper</h1>
+        </a>
+        <nav>
+            <ul>
+                <li><a href="welcomepage.html">Home</a></li>
+                
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Login Form Section -->
+    <section class="login-container">
+        <h2>Welcome Back!</h2>
+        <form id="login-form">
+            <div class="input-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" placeholder="Enter your email" required>
+            </div>
+            <div class="input-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" placeholder="Enter your password" required>
+            </div>
+            <button type="submit" class="login-btn">Get Me In</button>
+            <button type="button" class="signup-btn" onclick="window.location.href='signup.html';">Sign Up</button>
+        </form>
+    </section>
+
+    <script>
+        document.getElementById("login-form").addEventListener("submit", async (e) => {
+            e.preventDefault();
+            
+            const email = document.getElementById("email").value;
+            const password = document.getElementById("password").value;
+            
+            try {
+                const res = await fetch("http://localhost:5000/api/auth/login", {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({ email, password })
+                });
+                
+                const data = await res.json();
+                console.log("Response status:", res.status);
+                console.log("Response data:", data);
+                
+                if (res.ok) {
+                    // Store user data consistently across the site
+                    localStorage.setItem("token", data.token);
+                    localStorage.setItem("username", data.user.username);
+                    localStorage.setItem("userId", data.user._id);
+                    localStorage.setItem("email", data.user.email);
+                    // Still keep the full user object if needed elsewhere
+                    localStorage.setItem("user", JSON.stringify(data.user));
+                    
+                    window.location.href = "index.html";
+                } else {
+                    alert(data.error || "Login failed!");
+                }
+            } catch (err) {
+                console.error("Fetch error:", err);
+                alert("Login failed! Please check your connection.");
+            }
+        });
+    </script>
+</body>
+</html>

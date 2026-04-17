@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Otaku Helper</title>
+    <link rel="stylesheet" href="action.css">
+</head>
+<body>
+
+    <!-- Header Section -->
+    <header>
+        <nav>
+            <button class="menu-button" onclick="openSidebar()">☰</button>
+            <a href="index.html" class="logo-title">
+                <img src="C:\Users\palak anand\OneDrive\Desktop\renders\Blue and Magenta Gradient Modern Concert Event Desktop Prototype.png" 
+                     alt="Otaku Helper Logo" class="logo">
+                <h1>Otaku Helper</h1>
+            </a>
+
+        </nav>
+    </header>
+
+     <!-- Sidebar -->
+<div id="sidebar" class="sidebar">
+    <button class="close-btn" onclick="closeSidebar()">×</button>
+    <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="genre.html">Genre</a></li>
+        <li><a href="quizz.html">Quiz</a></li>
+        <li><a href="thread.html">Threads</a></li>
+        <li><a href="#" id="randomAnimeLink">Random</a></li>
+        <li><a href="profile.html">Profile</a></li>
+        <li><a href="analytics.html">Otaku Nexus</a></li>
+    </ul>
+</div>
+
+    <section class="hero">
+        <div class="search-container">
+            <input type="text" placeholder="Search for anime...">
+            <button>Search</button>
+        </div>
+    </section>
+
+  <!-- Trending Anime Section -->
+<section class="anime-section">
+    <h2>Action Anime</h2>
+    <div class="anime-grid">
+
+        <!-- Anime Card 1 -->
+        <div class="anime-card">
+            <img src="https://cdn.noitatnemucod.net/thumbnail/300x400/100/6fb592efaecb861b3c6e2ad56e3edbdb.jpg" alt="Hokuto no Ken">
+            <div class="anime-info">
+                <h3>Hokuto no Ken: Yuria-den</h3>
+                <button class="watch-now-button">+ Add to Watchlist</button>
+            </div>
+        </div>
+      
+
+        <!-- Anime Card 2 -->
+        <div class="anime-card">
+            <img src="https://cdn.noitatnemucod.net/thumbnail/300x400/100/1204df29e633eefc5ac33b2091a93036.jpg" alt="New Fist of the North Star">
+            <div class="anime-info">
+                <h3>New Fist of the North Star</h3>
+                <button class="watch-now-button">+ Add to Watchlist</button>
+            </div>
+        </div>
+        
+        <!-- Anime Card 3 -->
+        <div class="anime-card">
+            <img src="https://cdn.noitatnemucod.net/thumbnail/300x400/100/ecb2fa76829e9b9c644df52eda9ae111.jpg" alt="Appleseed">
+            <div class="anime-info">
+                <h3>Appleseed</h3>
+                <button class="watch-now-button">+ Add to Watchlist</button>
+            </div>
+        </div>
+
+        <!-- Anime Card 4 -->
+        <div class="anime-card">
+            <img src="https://cdn.noitatnemucod.net/thumbnail/300x400/100/e4b6651c5acc4188dbd03f6a9911ce15.jpg" alt="Ghost in the Shell">
+            <div class="anime-info">
+                <h3>Ghost in the Shell: Stand Alone Complex 2nd GIG - Individual Eleven</h3>
+                <button class="watch-now-button">+ Add to Watchlist</button>
+            </div>
+        </div>
+        <!-- Anime Card 5 -->
+        <div class="anime-card">
+            <img src="https://cdn.noitatnemucod.net/thumbnail/300x400/100/45c50af44712f05b30c9cbfba6283abb.jpg" alt="Hunter x Hunter">
+            <div class="anime-info">
+                <h3>Hunter x Hunter</h3>
+                <button class="watch-now-button">+ Add to Watchlist</button>
+            </div>
+        </div>
+        
+    </div>
+</section>
+
+<script>
+    function openSidebar() {
+        document.getElementById("sidebar").style.width = "250px";
+    }
+
+    function closeSidebar() {
+        document.getElementById("sidebar").style.width = "0";
+    }
+</script>
+
+    <script src="script.js"></script>
+</body>
+</html>

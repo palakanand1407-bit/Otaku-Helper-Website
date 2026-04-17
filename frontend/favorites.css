@@ -1,0 +1,430 @@
+/* Base styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* General page styling */
+body {
+  /* Background gradient with anime-inspired colors */
+background: linear-gradient(90deg, #5b0043, #48006f, #7a4bf1);
+color: #ffffff;
+font-family: Arial, sans-serif;
+margin: 0;
+padding: 0;
+}
+
+/* Header section */
+header {
+background-color: #410046;
+padding: 15px;
+display: flex;
+align-items: center;
+justify-content: space-between;
+}
+
+/* Navigation Bar */
+nav {
+  display: flex;               /* allows flex layout for children */
+  align-items: center;         /* vertically centers items */
+  justify-content: flex-start; /* aligns content to the left */
+  padding: 0 20px;
+}
+
+/* Menu button (for mobile navigation in the future) */
+.menu-button {
+background: none;
+border: none;
+color: white;
+font-size: 24px;
+cursor: pointer;
+}
+
+/* Logo and Title Container */
+.logo-title {
+display: flex;
+align-items: center;
+gap: 10px;
+color: white;
+text-decoration: none;
+}
+
+/* Logo Styling */
+.logo {
+width: 70px; /* Increased size */
+height: 70px;
+}
+
+/* Website title (Otaku Helper) */
+.logo-title h1 {
+font-size: 30px;
+margin: 0;
+}
+
+/* Navigation Links */
+nav ul {
+list-style: none;
+display: flex;
+gap: 140px;
+padding: 10;
+margin: 0; /* Ensures items wrap properly if needed */
+justify-content: center; /* Centers navigation items */
+}
+
+/* Ensure watchlist is in one line */
+nav ul li {
+white-space: nowrap; /* Prevents wrapping of items */
+}
+
+/* Navigation Link Styling */
+nav ul li a {
+text-decoration: none;
+color: white;
+font-size: 18px;
+transition: 0.3s;
+}
+
+/* Navigation Hover Effect */
+nav ul li a:hover {
+color: #ff6b81;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Search bar */
+.search-bar {
+    display: flex;
+    margin: 20px 0;
+    border-radius: 30px;
+    overflow: hidden;
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+#search-input {
+    flex: 1;
+    padding: 25px 25px;
+    border: none;
+    background: transparent;
+    color: white;
+    font-size: 18px;
+}
+
+#search-input::placeholder {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+#search-button {
+    padding: 15px 30px;
+    border: none;
+    background-color: #410046;
+    color: white;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+/* Section title */
+.section-title {
+    font-size: 26px;
+    margin: 30px 0;
+    text-align: center;
+}
+
+/* Anime grid */
+.anime-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+/* Anime card */
+.anime-card {
+    background-color: rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+    overflow: hidden;
+    transition: transform 0.3s , box-shadow 0.3s ease;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.anime-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+.anime-card img {
+    width: 100%;
+    height: 320px;
+    object-fit: cover;
+}
+
+.anime-card-content {
+    padding: 15px;
+}
+
+.anime-card h3 {
+    margin-bottom: 8px;
+    font-size: 18px;
+}
+
+.genres {
+    color: #cccccc;
+    font-size: 14px;
+    margin-bottom: 8px;
+}
+
+.score {
+    font-weight: bold;
+}
+
+/* Loading */
+.loading {
+    text-align: center;
+    padding: 40px;
+    font-size: 18px;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+/* Details page */
+.back-button {
+    margin-bottom: 20px;
+}
+
+.back-button a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.detail-container {
+    background-color: rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+    padding: 20px;
+}
+.anime-card-container {
+    position: relative;
+    margin-bottom: 20px;
+  }
+
+.anime-content {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+}
+
+.anime-poster {
+    flex: 0 0 300px;
+}
+
+.anime-poster img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+.anime-info {
+    flex: 1 1 500px;
+}
+
+.anime-info h1 {
+    margin-bottom: 20px;
+    font-size: 28px;
+}
+
+.description {
+    margin-bottom: 20px;
+    line-height: 1.6;
+}
+
+.anime-info > div {
+    margin-bottom: 10px;
+}
+
+.score-value {
+    background-color: #4CAF50;
+    padding: 2px 8px;
+    border-radius: 4px;
+}
+
+.action-buttons {
+    margin-top: 30px;
+    display: flex;
+    gap: 15px;
+}
+
+
+
+.error {
+    color: #ff4d4d;
+    text-align: center;
+    padding: 20px;
+}
+
+/* Sidebar Styling */
+.sidebar {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: rgba(44, 0, 53, 0.95);
+    overflow-x: hidden;
+    transition: 0.3s;
+    padding-top: 60px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    z-index: 1000; /* Makes sidebar appear on top of everything */
+  }
+  
+  .search-container {
+    position: relative; /* Ensures search bar stays in place */
+    z-index: 1; /* Keeps it below the sidebar */
+  }
+  
+  /* Sidebar links */
+  .sidebar ul {
+    list-style-type: none;
+    padding: 0;
+    width: 100%;
+    text-align: center;
+  }
+  
+  .sidebar ul li {
+    padding: 15px;
+    width: 100%;
+  }
+  
+  .sidebar ul li a {
+    text-decoration: none;
+    font-size: 20px;
+    color: white;
+    display: block;
+    transition: 0.3s;
+  }
+  
+  .sidebar ul li a:hover {
+    background: rgba(255, 255, 255, 0.2);
+  }
+  
+  /* Close button */
+  .close-btn {
+    position: absolute;
+    top: 10px;
+    right: 25px;
+    font-size: 36px;
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+  }
+
+  .like-btn {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    background: rgba(65, 0, 70, 0.8);
+    border: none;
+    border-radius: 50%;
+    width: 35px;
+    height: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    z-index: 10;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  }
+  
+  .like-btn:hover {
+    transform: scale(1.15);
+    background: rgba(100, 0, 110, 0.9);
+  }
+  
+  .like-btn.liked {
+    background: rgba(255, 50, 100, 0.8);
+  }
+  
+  /* For detail page like button */
+  .detail-like-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(65, 0, 70, 0.8);
+    color: white;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 20px;
+    padding: 8px 16px;
+    margin: 15px 0;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  .detail-like-btn:hover {
+    background: rgba(100, 0, 110, 0.8);
+    transform: scale(1.05);
+  }
+  
+  .detail-like-btn.liked {
+    background: rgba(255, 50, 100, 0.8);
+  }
+
+.no-favorites, .login-prompt {
+    text-align: center;
+    padding: 40px;
+    background: rgba(65, 0, 70, 0.5);
+    border-radius: 15px;
+    margin: 20px auto;
+    max-width: 600px;
+  }
+  
+  .no-favorites h3, .login-prompt h3 {
+    font-size: 24px;
+    margin-bottom: 15px;
+    color: white;
+  }
+  
+  .no-favorites p {
+    color: rgba(255, 255, 255, 0.8);
+    margin-bottom: 20px;
+  }
+  
+  .explore-button, .login-button {
+    display: inline-block;
+    background: #7a4bf1;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 20px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: all 0.3s ease;
+  }
+  
+  .explore-button:hover, .login-button:hover {
+    background: #8d63f5;
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  }
+  
+  /* Active sidebar link */
+  .sidebar ul li a.active {
+    background: rgba(255, 255, 255, 0.2);
+    border-left: 3px solid #ff6b81;
+  }
+  
+  /* Animation for removing cards */
+  @keyframes fadeOut {
+    from { opacity: 1; transform: scale(1); }
+    to { opacity: 0; transform: scale(0.8); }
+  }
+  
+  .anime-card-container.removing {
+    animation: fadeOut 0.5s forwards;
+  }

@@ -1,0 +1,414 @@
+/* Quiz Main Container */
+.quiz-container {
+    max-width: 800px;
+    margin: 30px auto;
+    padding: 20px;
+    background: rgba(65, 0, 80, 0.7);
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: white;
+    font-family: 'Roboto', sans-serif;
+}
+
+.quiz-header {
+    text-align: center;
+    margin-bottom: 30px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.quiz-header h1 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 2.2rem;
+    margin-bottom: 10px;
+    color: #ff6b81;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.quiz-header p {
+    font-size: 1.1rem;
+    color: #cccccc;
+}
+
+/* Question Cards Container */
+.quiz-body {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+/* Question Card */
+.question-card {
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+    padding: 25px;
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 25px; /* Add space between cards */
+    border-bottom: none;
+}
+
+.question-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%; /* Ensure full width */
+    height: 100%; /* Ensure full height */
+    background-size: cover;
+    background-position: center;
+    opacity: 0.2;
+    z-index: -1;
+    border: none; 
+}
+
+.question-card h2 {
+    font-size: 1.4rem;
+    margin-bottom: 20px;
+    color: white;
+    position: relative;
+}
+.quiz-body > div {
+    border: none;
+    background-clip: padding-box;
+}
+
+/* Remove unwanted border artifacts */
+.question-card:after {
+    display: none; /* Remove any pseudo-elements that might be adding lines */
+}
+
+/* Answer Options */
+.option {
+    display: block;
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 8px;
+    color: white;
+    font-size: 1rem;
+    text-align: left;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.option:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateX(5px);
+}
+
+.option.selected {
+    background: linear-gradient(90deg, #8E44AD, #4A90E2);
+    border-color: #8E44AD;
+    box-shadow: 0 0 10px rgba(142, 68, 173, 0.5);
+}
+
+/* Submit Button */
+.quiz-submit {
+    text-align: center;
+    margin-top: 30px;
+}
+
+.submit-btn {
+    padding: 12px 30px;
+    border: none;
+    border-radius: 25px;
+    background: linear-gradient(45deg, #ff6b81, #8E44AD);
+    color: white;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.submit-btn:hover {
+    background: linear-gradient(45deg, #8E44AD, #ff6b81);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* Result Modal */
+.result-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+    animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.result-content {
+    background: linear-gradient(135deg, #5b0043, #48006f);
+    width: 90%;
+    max-width: 600px;
+    border-radius: 15px;
+    padding: 20px; /* Reduced from 30px */
+    position: relative;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    animation: slideUp 0.4s ease;
+}
+
+.result-container {
+    width: 700px;           /* Increase this to widen the card */
+    padding-top: 20px;      /* Reduce top padding */
+    padding-bottom: 20px;   /* Reduce bottom padding */
+    margin: auto;           /* Keep it centered */
+}
+@keyframes slideUp {
+    from { transform: translateY(50px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+.close-btn {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 28px;
+    color: white;
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+.close-btn:hover {
+    color: #ff6b81;
+}
+
+.result-header {
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+.result-header h2 {
+    font-family: 'Montserrat', sans-serif;
+    color: white;
+    margin-bottom: 15px;
+}
+
+.genre-icon {
+    font-size: 50px; /* Reduced from 60px */
+    margin: 10px auto; /* Reduced from 15px */
+    width: 80px; /* Reduced from 100px */
+    height: 80px; /* Reduced from 100px */
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.1);
+    border: 3px solid white;
+}
+
+.result-body h3 {
+    font-size: 1.8rem; /* Reduced from 2rem */
+    color: #ff6b81;
+    text-align: center;
+    margin-bottom: 10px; /* Reduced from 15px */
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.result-body p {
+    font-size: 1rem; /* Reduced from 1.1rem */
+    line-height: 1.5; /* Reduced from 1.6 */
+    margin-bottom: 20px; /* Reduced from 25px */
+    text-align: center;
+}
+.recommendations {
+    background: rgba(0, 0, 0, 0.2);
+    padding: 12px; /* Reduced from 15px */
+    border-radius: 10px;
+    margin-top: 15px; /* Reduced from 20px */
+}
+
+.recommendations h4 {
+    font-size: 1.2rem; /* Reduced from 1.3rem */
+    margin-bottom: 8px; /* Reduced from 10px */
+    color: white;
+    text-align: center;
+}
+
+.recommendations ul {
+    list-style-type: none;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+}
+
+.recommendations li {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 6px 12px; /* Reduced from 8px 15px */
+    border-radius: 20px;
+    font-size: 0.85rem; /* Reduced from 0.9rem */
+}
+
+
+.retake-btn {
+    display: block;
+    width: 100%;
+    padding: 10px; /* Reduced from 12px */
+    margin-top: 15px; /* Reduced from 20px */
+    background: linear-gradient(45deg, #ff6b81, #8E44AD);
+    color: white;
+    border: none;
+    border-radius: 25px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+.retake-btn:hover {
+    background: linear-gradient(45deg, #8E44AD, #ff6b81);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .quiz-container {
+        margin: 20px 10px;
+        padding: 15px;
+    }
+    
+    .quiz-header h1 {
+        font-size: 1.8rem;
+    }
+    
+    .question-card {
+        padding: 15px;
+    }
+    
+    .option {
+        padding: 10px 15px;
+    }
+    
+    .result-content {
+        width: 95%;
+        padding: 20px;
+    }
+}
+
+@media (min-width: 768px) {
+    .question-card {
+        padding: 30px;
+    }
+    
+    .options-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+        margin-top: 15px;
+    }
+}
+
+/* Loading state */
+.loading {
+    text-align: center;
+    padding: 30px;
+    color: white;
+}
+
+.loading .fa-spinner {
+    font-size: 2rem;
+    margin-bottom: 15px;
+}
+
+/* Genre breakdown chart */
+.genre-breakdown {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin: 15px 0;
+}
+
+.genre-bar {
+    display: flex;
+    align-items: center;
+    margin-bottom: 5px;
+}
+
+.genre-name {
+    width: 110px;
+    text-align: right;
+    padding-right: 10px;
+    font-size: 0.9rem;
+}
+
+.bar-container {
+    flex: 1;
+    background: rgba(255, 255, 255, 0.1);
+    height: 12px;
+    border-radius: 6px;
+    overflow: hidden;
+}
+
+.bar-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #ff6b81, #8E44AD);
+    border-radius: 6px;
+    transition: width 1s ease;
+}
+
+.genre-percentage {
+    width: 40px;
+    text-align: right;
+    padding-left: 10px;
+    font-size: 0.9rem;
+}
+
+/* Update to options for 5 choices */
+.option {
+    display: block;
+    width: 100%;
+    padding: 12px 20px;
+    margin: 6px 0;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 8px;
+    color: white;
+    font-size: 0.95rem;
+    text-align: left;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+/* Progress indicators */
+.progress-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.progress-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.3);
+    margin: 0 4px;
+    transition: all 0.3s ease;
+}
+
+.progress-dot.active {
+    background: #ff6b81;
+    transform: scale(1.2);
+}
+
+.progress-dot.completed {
+    background: #8E44AD;
+}

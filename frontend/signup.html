@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up - Otaku Helper</title>
+    <link rel="stylesheet" href="signup.css">
+</head>
+<body>
+
+   <header>
+    <a href="index.html" class="logo-title h1">
+        <img src="C:\Users\palak anand\OneDrive\Desktop\renders\Blue and Magenta Gradient Modern Concert Event Desktop Prototype.png"
+             alt="Otaku Helper Logo" class="logo">
+        <h1>Otaku Helper</h1>
+    </a>
+        <nav>
+            <ul>
+                <li><a href="login.html">Sign In</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Sign Up Form Section -->
+    <section class="signup-container">
+        <h2>Create Your Account</h2>
+        <form id="signup-form">
+            <div class="input-group">
+                <label for="username">Username</label>
+                <input type="text" id="username" placeholder="Choose a username" required>
+            </div>
+            <div class="input-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" placeholder="Enter your email" required>
+            </div>
+            <div class="input-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" placeholder="Create a password" required>
+                <small id="password-hint" style="color: #777;">Password must be at least 6 characters long</small>
+            </div>
+            <button type="submit" class="signup-btn">Sign Up</button>
+        </form>
+    </section>
+    <script>
+        document.getElementById("signup-form").addEventListener("submit", async (e) => {
+            e.preventDefault();
+            
+            const username = document.getElementById("username").value;
+            const email = document.getElementById("email").value;
+            const password = document.getElementById("password").value;
+            
+            // Client-side validation
+            if (password.length < 6) {
+                alert("Password must be at least 6 characters long!");
+                return;
+            }
+            
+            try {
+                const res = await fetch("http://localhost:5000/api/auth/register", {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({ username, email, password })
+                });
+                
+                const data = await res.json();
+                console.log("Response status:", res.status);
+                console.log("Response data:", data);
+                
+                if (res.ok) {
+                    // Try to login the user automatically after successful registration
+                    try {
+                        const loginRes = await fetch("http://localhost:5000/api/auth/login", {
+                            method: "POST",
+                            headers: { "Content-Type": "application/json" },
+                            body: JSON.stringify({ email, password })
+                        });
+                        
+                        const loginData = await loginRes.json();
+                        
+                        if (loginRes.ok) {
+                            // Store user data consistently
+                            localStorage.setItem("token", loginData.token);
+                            localStorage.setItem("username", loginData.user.username);
+                            localStorage.setItem("userId", loginData.user._id);
+                            localStorage.setItem("email", loginData.user.email);
+                            localStorage.setItem("user", JSON.stringify(loginData.user));
+                        }
+                    } catch (loginErr) {
+                        console.error("Auto-login failed:", loginErr);
+                        // Continue to redirect even if auto-login fails
+                    }
+                    
+                    window.location.href = "index.html";
+                } else {
+                    alert(data.error || "Something went wrong!");
+                }
+            } catch (err) {
+                console.error("Fetch error:", err);
+                alert("Signup failed! Please check your connection.");
+            }
+        });
+    </script>
+</body>
+</html>

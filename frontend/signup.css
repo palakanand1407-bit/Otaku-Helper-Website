@@ -1,0 +1,145 @@
+/* General Styling */
+body {
+    background: url('https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/8b8c30b9-5b27-4a89-8aed-8a67a38385cc/d3jsnpl-ab8372a0-decb-47cd-8ad4-2c1a95293ae0.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcLzhiOGMzMGI5LTViMjctNGE4OS04YWVkLThhNjdhMzgzODVjY1wvZDNqc25wbC1hYjgzNzJhMC1kZWNiLTQ3Y2QtOGFkNC0yYzFhOTUyOTNhZTAuanBnIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.y2i-B3C0UkrlgdZsEjSuMtN3_l6dS2ifSGE1MzqvUYc') no-repeat center center/cover;
+    color: #ffffff;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+/* Header Styling - Fixed Position */
+header {
+    background-color: rgba(65, 0, 70, 0.9);
+    padding: 10px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 98%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+}
+
+/* Logo and Title Container */
+.logo-title {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 0;
+    text-decoration: none;
+    color: white;
+    font-size: 30px;
+    transition: 0.3s;
+
+}
+
+/* Logo Styling */
+.logo {
+    width: 70px; /* Increased size */
+    height: 70px;
+}
+
+/* Website title (Otaku Helper) */
+.logo-title h1 {
+    margin: 0;
+    font-size: 30px;
+   
+}
+
+/* Navigation Links */
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 140px;
+    padding: 10;
+    margin: 0; /* Ensures items wrap properly if needed */
+    justify-content: center; /* Centers navigation items */
+}
+
+/* Ensure watchlist is in one line */
+nav ul li {
+    white-space: nowrap; /* Prevents wrapping of items */
+}
+
+/* Navigation Link Styling */
+nav ul li a {
+    text-decoration: none;
+    color: white;
+    font-size: 18px;
+    transition: 0.3s;
+}
+
+/* Navigation Hover Effect */
+nav ul li a:hover {
+    color: #ff6b81;
+}
+
+/* Sign Up Container */
+.signup-container {
+    width: 500px;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 20px;
+    border-radius: 20px;
+    text-align: center;
+    box-shadow: 0px 0px 15px rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(10px);
+    margin-top: 100px;
+}
+
+.signup-container h2 {
+    font-size: 30px;
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+.input-group {
+    text-align: left;
+    margin-bottom: 15px;
+}
+
+.input-group label {
+    display: block;
+    font-size: 18px;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.input-group input, .input-group select {
+    width: 97%;
+    padding: 12px;
+    border: none;
+    border-radius: 10px;
+    font-size: 16px;
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
+    outline: none;
+}
+
+.input-group input::placeholder {
+    color: #ddd;
+}
+
+/* Sign Up Button */
+.signup-btn {
+    width: 100%;
+    padding: 14px;
+    background: linear-gradient(45deg, #6a11cb, #2575fc);
+    border: none;
+    color: white;
+    font-size: 18px;
+    border-radius: 25px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: 0.3s;
+    margin-top: 10px;
+}
+
+.signup-btn:hover {
+    background: linear-gradient(45deg, #2575fc, #6a11cb);
+}

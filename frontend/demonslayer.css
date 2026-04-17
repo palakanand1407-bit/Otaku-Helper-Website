@@ -1,0 +1,239 @@
+/* General page styling */
+body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(90deg, #48006f, #7a4bf1);
+    color: #ffffff;
+    margin: 0;
+    padding: 0;
+}
+
+/* Header section */
+header {
+    background-color: #410046;
+    padding: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+/* Navigation Bar */
+nav {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 0 20px;
+}
+
+/* Menu button */
+.menu-button {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+/* Logo and Title Container */
+.logo-title {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none; /* Removes underline */
+    color: white; /* Ensures title remains white */
+}
+
+/* Logo Styling */
+.logo {
+    width: 70px;
+    height: 70px;
+}
+
+/* Header title styling */
+.logo-title h1 {
+    font-size: 30px;
+    margin: 0;
+}
+
+
+/* Navigation Links */
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 140px;
+    padding: 10;
+    margin: 0; /* Ensures items wrap properly if needed */
+    justify-content: center; /* Centers navigation items */
+}
+
+/* Ensure watchlist is in one line */
+nav ul li {
+    white-space: nowrap; /* Prevents wrapping of items */
+}
+
+/* Navigation Link Styling */
+nav ul li a {
+    text-decoration: none;
+    color: white;
+    font-size: 18px;
+    transition: 0.3s;
+}
+
+
+/* Main Content */
+main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 40px; /* Ensures header is separate */
+}
+
+/* Anime Container */
+.anime-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100vh;
+    padding: 20px;
+    width: 80%;
+    margin: auto;
+}
+
+/* Anime Card */
+.anime-card {
+    display: flex;
+    flex-direction: row-reverse; /* Moves image to the right */
+    background: #410046;
+    border-radius: 15px;
+    padding: 60px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    width: 100%;
+    max-width: 1500px;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Anime Poster - Inside a Card with Rounded Edges */
+.anime-poster {
+    background: rgba(150, 0, 170, 0.1);
+    padding: 15px;
+    border-radius: 20px;
+    box-shadow: 0px 4px 10px rgba(43, 0, 46, 0.2);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.anime-poster img {
+    width: 400px;
+    border-radius: 15px;
+    box-shadow: 0px 4px 8px rgba(255, 255, 255, 0.3);
+}
+
+/* Anime Info */
+.anime-info {
+    flex: 1;
+    padding-right: 20px;
+    text-align: left; /* Align content to the left */
+}
+
+/* Buttons Section */
+.buttons {
+    margin-top: 15px;
+    display: flex;
+    gap: 15px;
+}
+
+/* Colorful Gradient Buttons with Hover Effect and Curved Edges */
+.watch-now, .add-watchlist {
+    padding: 12px 24px;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: 0.3s;
+    font-size: 16px;
+    font-weight: bold;
+    box-shadow: 0px 4px 8px rgba(255, 105, 135, 0.3);
+    outline: none;
+    color: white;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.watch-now {
+    background: linear-gradient(45deg, #ff416c, #ff4b2b);
+}
+
+.watch-now:hover {
+    background: linear-gradient(45deg, #ff4b2b, #ff416c);
+    transform: scale(1.08);
+}
+
+.add-watchlist {
+    background: linear-gradient(45deg, #1e90ff, #4facfe);
+}
+
+.add-watchlist:hover {
+    background: linear-gradient(45deg, #4facfe, #1e90ff);
+    transform: scale(1.08);
+}
+
+/* Sidebar Styling */
+.sidebar {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: rgba(44, 0, 53, 0.95);
+    overflow-x: hidden;
+    transition: 0.3s;
+    padding-top: 60px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    z-index: 1000; /* Makes sidebar appear on top of everything */
+}
+
+/* Adjust search bar position so it doesn't overlap */
+.search-container {
+    position: relative; /* Ensures search bar stays in place */
+    z-index: 1; /* Keeps it below the sidebar */
+}
+
+/* Sidebar links */
+.sidebar ul {
+    list-style-type: none;
+    padding: 0;
+    width: 100%;
+    text-align: center;
+}
+
+.sidebar ul li {
+    padding: 15px;
+    width: 100%;
+}
+
+.sidebar ul li a {
+    text-decoration: none;
+    font-size: 20px;
+    color: white;
+    display: block;
+    transition: 0.3s;
+}
+
+.sidebar ul li a:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+/* Close button */
+.close-btn {
+    position: absolute;
+    top: 10px;
+    right: 25px;
+    font-size: 36px;
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+}
+

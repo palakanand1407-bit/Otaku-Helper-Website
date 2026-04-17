@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Demon Slayer - Otaku Helper</title>
+    <link rel="stylesheet" href="demonslayer.css">
+</head>
+<body>
+
+    <header>
+        <nav>
+            <button class="menu-button" onclick="openSidebar()">☰</button>
+            <a href="otakuhelper.html" class="logo-title">
+                <img src="C:\Users\palak anand\OneDrive\Desktop\renders\Blue and Magenta Gradient Modern Concert Event Desktop Prototype.png" 
+                     alt="Otaku Helper Logo" class="logo">
+                <h1>Otaku Helper</h1>
+            </a>
+            
+        </nav>
+    </header>
+
+     <!-- Sidebar -->
+    <div id="sidebar" class="sidebar">
+        <button class="close-btn" onclick="closeSidebar()">×</button>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+        <li><a href="genre.html">Genre</a></li>
+        <li><a href="quiz.html">Quiz</a></li>
+        <li><a href="Threads.html">Threads</a></li>
+        <li><a href="#" id="randomAnimeLink">Random</a></li>
+        <li><a href="analytics.html">Otaku Nexus</a></li>
+        <li><a href="profile.html">Profile</a></li>
+        </ul>
+    </div>
+
+    <main>
+        <div class="anime-container">
+            <div class="anime-card">
+                <!-- Anime Poster Inside a Card -->
+                <div class="anime-poster">
+                    <img src="https://cdn.noitatnemucod.net/thumbnail/300x400/100/e9e91f6f86322d2d38c817cc42cb9284.jpg" alt="Demon Slayer">
+                </div>
+                <div class="anime-info">
+                    <h1 class="anime-title">Demon Slayer: Kimetsu no Yaiba – To the Swordsmith Village</h1>
+                    <p>Tanjiro, Zenitsu, and Inosuke go on their first mission together and venture to Mount Natagumo. Too afraid to go up the "spooky mountain" with Tanjiro and Inosuke, Zenitsu stays behind. Tanjiro and Inosuke encounter a mountain laced with spider webs and controlled by Spider Demons. These Demons have already dispatched countless Demon Slayers, forcing Kagaya to send in the Hashira as reinforcements.</p>
+
+
+                    <div class="buttons">
+                        <button class="watch-now">▶ Watch Now</button>
+                        <button class="add-watchlist" id="add-to-watchlist">+ Add to Watchlist</button>
+                    </div>
+                    <div class="anime-details">
+                        <p><strong>Episodes:</strong> 12</p>
+                        <p><strong>Japanese:</strong> 劇場版 鬼滅の刃 無限列車編</p>
+                        <p><strong>Premiered:</strong> Spring 2023</p>
+                        <p><strong>Duration:</strong> 24 min per episode</p>
+                        <p><strong>Status:</strong> Finished Airing</p>
+                        <p><strong>Genre:</strong>  Action, Adventure, Demons, Shounen, Super Power</p>
+                        <p><strong>Studios:</strong> ufotable</p>
+                        <p><strong>Producer:</strong> ufotable, Aniplex of America</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        function openSidebar() {
+            document.getElementById("sidebar").style.width = "250px";
+        }
+    
+        function closeSidebar() {
+            document.getElementById("sidebar").style.width = "0";
+        }
+        
+        // Add event listener to the random anime link
+        document.addEventListener('DOMContentLoaded', function() {
+            document.getElementById('randomAnimeLink').addEventListener('click', function(e) {
+                e.preventDefault();
+                fetchRandomAnime();
+            });
+            
+            // Add to watchlist functionality
+            document.getElementById('add-to-watchlist').addEventListener('click', function() {
+                // Create a demon slayer object to add to watchlist
+                const demonSlayer = {
+                    Name: "Demon Slayer: Kimetsu no Yaiba – To the Swordsmith Village",
+                    "English name": "Demon Slayer: Kimetsu no Yaiba – To the Swordsmith Village",
+                    "Other name": "劇場版 鬼滅の刃 無限列車編",
+                    Synopsis: "Tanjiro, Zenitsu, and Inosuke go on their first mission together and venture to Mount Natagumo. Too afraid to go up the \"spooky mountain\" with Tanjiro and Inosuke, Zenitsu stays behind. Tanjiro and Inosuke encounter a mountain laced with spider webs and controlled by Spider Demons. These Demons have already dispatched countless Demon Slayers, forcing Kagaya to send in the Hashira as reinforcements.",
+                    "Image URL": "https://cdn.noitatnemucod.net/thumbnail/300x400/100/e9e91f6f86322d2d38c817cc42cb9284.jpg",
+                    Episodes: "12",
+                    Premiered: "Spring 2023",
+                    Duration: "24 min per episode",
+                    Status: "Finished Airing",
+                    Genres: "Action, Adventure, Demons, Shounen, Super Power",
+                    Studios: "ufotable",
+                    Producers: "ufotable, Aniplex of America",
+                    Score: 8.78
+                };
+                
+                addToWatchlist(demonSlayer);
+            });
+        });
+       
+        function addToWatchlist(anime) {
+            // Get current watchlist from localStorage
+            let watchlist = localStorage.getItem('watchlist');
+            watchlist = watchlist ? JSON.parse(watchlist) : [];
+            
+            // Check if anime is already in watchlist
+            const isAlreadyInWatchlist = watchlist.some(item => item.Name === anime.Name);
+            
+            if (isAlreadyInWatchlist) {
+                alert('This anime is already in your watchlist!');
+                return;
+            }
+            
+            // Add to watchlist
+            watchlist.push(anime);
+            localStorage.setItem('watchlist', JSON.stringify(watchlist));
+            
+            alert('Added to your watchlist!');
+        }
+
+    // Add event listener for random anime link
+document.addEventListener('DOMContentLoaded', function() {
+    document.getElementById('randomAnimeLink').addEventListener('click', function(e) {
+        e.preventDefault();
+        fetchRandomAnime();
+    });
+});
+
+function fetchRandomAnime() {
+    // Show loading state (optional)
+    document.body.style.cursor = 'wait';
+    
+    fetch('http://localhost:5000/api/random')
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            return response.json();
+        })
+        .then(anime => {
+            // Get the anime ID or generate one if needed
+            const animeId = anime._id || Math.floor(Math.random() * 10000);
+            
+            // Store the anime data in localStorage for use on the details page
+            localStorage.setItem('randomAnime', JSON.stringify(anime));
+            
+            // Redirect to the anime details page with the ID
+            window.location.href = `anime-details.html?id=random`;
+        })
+        .catch(error => {
+            console.error('Error fetching random anime:', error);
+            alert('Failed to get a random anime. Please try again.');
+        })
+        .finally(() => {
+            // Reset cursor
+            document.body.style.cursor = 'default';
+        });
+}
+    </script>
+</body>
+</html>

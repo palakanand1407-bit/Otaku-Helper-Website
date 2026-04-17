@@ -1,0 +1,533 @@
+:root {
+    --primary-color: #8E44AD;
+    --secondary-color: #4A90E2;
+    --accent-color: #ff6b81;
+    --text-color: #ffffff;
+    --text-light: #cccccc;
+    --bg-gradient: linear-gradient(90deg, #5b0043, #48006f, #7a4bf1);
+    --card-bg: rgba(65, 0, 80, 0.7);
+    --border-color: rgba(255, 255, 255, 0.1);
+    --shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+body {
+    /* Background gradient with anime-inspired colors */
+  background: linear-gradient(90deg, #5b0043, #48006f, #7a4bf1);
+  color: #ffffff;
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+/* Header section */
+header {
+    background-color: #410046;
+    padding: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  /* Navigation Bar */
+  nav {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 0 20px;
+  }
+  
+  /* Menu button (for mobile navigation in the future) */
+  .menu-button {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
+  }
+  
+  /* Logo and Title Container */
+  .logo-title {
+    text-decoration: none;
+    color: white;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  /* Logo Styling */
+  .logo {
+    width: 70px; /* Increased size */
+    height: 70px;
+  }
+  
+  /* Website title (Otaku Helper) */
+  .logo-title h1 {
+    font-size: 30px;
+    margin: 0;
+  }
+  
+  /* Navigation Links */
+  nav ul {
+    list-style: none;
+    display: flex;
+    gap: 140px;
+    padding: 10;
+    margin: 0; /* Ensures items wrap properly if needed */
+    justify-content: center; /* Centers navigation items */
+  }
+  
+  /* Ensure watchlist is in one line */
+  nav ul li {
+    white-space: nowrap; /* Prevents wrapping of items */
+  }
+  
+  /* Navigation Link Styling */
+  nav ul li a {
+    text-decoration: none;
+    color: white;
+    font-size: 18px;
+    transition: 0.3s;
+  }
+  
+  /* Navigation Hover Effect */
+  nav ul li a:hover {
+    color: #ff6b81;
+  }
+.dashboard-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    padding-top: 50px;
+}
+
+.dashboard-header {
+    text-align: center;
+    margin-bottom: 50px;
+    padding: 20px;
+    background: rgba(65, 0, 80, 0.5);
+    border-radius: 10px;
+    backdrop-filter: blur(10px);
+}
+
+.dashboard-header h1 {
+    font-size: 2.5rem;
+    color: white;
+    margin-bottom: 10px;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+}
+
+.subtitle {
+    color: var(--text-light);
+    font-size: 1.1rem;
+}
+
+.dashboard-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 80px;
+    margin-bottom: 20px;
+}
+
+.dashboard-card {
+    background: var(--card-bg);
+    border-radius: 12px;
+    padding: 25px;
+    box-shadow: var(--shadow);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    backdrop-filter: blur(5px);
+    border: 1px solid var(--border-color);
+}
+
+.card-header {
+    margin-bottom: 20px;
+    text-align: center;
+    padding-bottom: 15px;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.card-header h2 {
+    font-size: 1.5rem;
+    color: white;
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.card-header h2 i {
+    color: var(--accent-color);
+}
+
+.card-subtitle {
+    color: var(--text-light);
+    font-size: 0.95rem;
+}
+
+/* Ranking Styles */
+.ranking-container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.anime-rank {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 12px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    transition: transform 0.3s;
+}
+
+.anime-rank:hover {
+    transform: translateY(-3px);
+    background: rgba(255, 255, 255, 0.15);
+}
+
+.rank-badge {
+    width: 30px;
+    height: 30px;
+    background: var(--accent-color);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 0.9rem;
+}
+
+.anime-rank img {
+    width: 50px;
+    height: 70px;
+    border-radius: 5px;
+    object-fit: cover;
+}
+
+.rank-info {
+    flex: 1;
+}
+
+.rank-info h3 {
+    margin: 0;
+    font-size: 1.1rem;
+    color: white;
+}
+
+.rank-stats {
+    display: flex;
+    gap: 15px;
+    margin-top: 5px;
+    font-size: 0.9rem;
+    color: var(--text-light);
+}
+
+.rank-stats span {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.rank-stats i {
+    color: var(--accent-color);
+}
+
+/* Chart Styles */
+.chart-container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+/* Bar Chart Styles */
+.bar-chart {
+    display: flex;
+    height: 100%;
+    padding: 15px 0;
+    position: relative;
+}
+
+.chart-y-axis {
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: space-between;
+    height: 100%;
+    margin-right: 10px;
+    font-size: 0.8rem;
+    color: var(--text-light);
+    padding-bottom: 30px;
+}
+
+.bars-container {
+    display: flex;
+    flex: 1;
+    align-items: flex-end;
+    gap: 20px;
+    height: 100%;
+}
+
+.bar-container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+    max-width: 80px;
+}
+
+.bar {
+    width: 100%;
+    background: linear-gradient(to top, var(--accent-color), var(--primary-color));
+    border-radius: 6px 6px 0 0;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    transition: height 0.5s ease;
+}
+
+.bar-value {
+    position: absolute;
+    top: -25px;
+    color: rgb(16, 13, 13);
+    font-weight: bold;
+    font-size: 0.9rem;
+    text-shadow: 0 1px 2px rgba(0,0,0,0.3);
+}
+
+.bar-label {
+    margin-top: 10px;
+    font-size: 0.85rem;
+    text-align: center;
+    white-space: nowrap;
+    transform: rotate(-45deg);
+    transform-origin: left center;
+    width: 100%;
+    padding-left: 10px;
+    color: var(--text-light);
+}
+
+/* Pie Chart Styles */
+.pie-chart-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+    height: 100%;
+}
+
+.pie-chart {
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 0 20px rgba(0,0,0,0.2);
+}
+
+.pie-slice {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    clip-path: polygon(50% 50%, 50% 0, 100% 0, 100% 50%);
+    transform: rotate(calc(var(--percentage) * 3.6deg));
+}
+
+.pie-center {
+    width: 80px;
+    height: 80px;
+    background: rgba(65, 0, 80, 0.7);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 0.8rem;
+    font-weight: bold;
+    color: white;
+    text-align: center;
+    line-height: 1.3;
+    box-shadow: 0 0 10px rgba(0,0,0,0.2) inset;
+}
+
+.pie-legend {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.legend-item {
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--text-light);
+}
+
+.color-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    display: inline-block;
+}
+
+/* Engagement Styles */
+.engagement-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+    height: 100%;
+}
+
+.engagement-card {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    padding: 20px 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    border: 1px solid var(--border-color);
+    transition: transform 0.3s;
+}
+
+.engagement-card:hover {
+    transform: translateY(-5px);
+    background: rgba(255, 255, 255, 0.15);
+}
+
+.engagement-icon {
+    font-size: 1.8rem;
+    color: var(--accent-color);
+    margin-bottom: 10px;
+}
+
+.engagement-value {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: white;
+    margin-bottom: 5px;
+}
+
+.engagement-label {
+    font-size: 0.95rem;
+    color: var(--text-light);
+}
+
+/* Footer Styles */
+.dashboard-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 25px;
+    background: rgba(65, 0, 80, 0.5);
+    border-radius: 8px;
+    font-size: 0.9rem;
+    backdrop-filter: blur(5px);
+    border: 1px solid var(--border-color);
+    margin-top: 80px;
+}
+
+.update-info {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.update-info i {
+    color: var(--accent-color);
+}
+
+.update-time {
+    font-weight: bold;
+}
+
+.data-info {
+    color: var(--text-light);
+}
+
+@media (max-width: 768px) {
+    .dashboard-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .engagement-container {
+        grid-template-columns: 1fr;
+    }
+    
+    .pie-chart-container {
+        flex-direction: column;
+    }
+    
+    .dashboard-footer {
+        flex-direction: column;
+        gap: 10px;
+        text-align: center;
+    }
+    
+    .dashboard-container {
+        padding-top: 80px;
+    }
+}
+
+.favorited-anime-section {
+  background: rgba(65, 0, 80, 0.5);
+  padding: 20px;
+  border-radius: 16px;
+  box-shadow: 0 4px 10px rgba(65, 0, 80, 0.7);;
+  grid-column: span 2;
+  margin-top: 20px;
+}
+
+.favorited-header {
+  margin-bottom: 15px;
+}
+
+.favorited-header h2 {
+  font-size: 22px;
+  color: #ff6b81;
+  margin-bottom: 5px;
+}
+
+.favorited-list {
+  display: flex;
+  overflow-x: auto;
+  gap: 16px;
+  scroll-snap-type: x mandatory;
+  padding-bottom: 10px;
+}
+
+.favorite-card {
+  background-color: #5f5f5f5f;
+  min-width: 250px;
+  border-radius: 12px;
+  padding: 15px;
+  scroll-snap-align: start;
+  transition: transform 0.3s ease;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.2);
+}
+
+.favorite-card:hover {
+  transform: scale(1.05);
+}
+
+.favorite-card h3 {
+  margin: 0 0 8px;
+  font-size: 18px;
+  color: #f569ff;
+}
+
+.favorite-stats {
+  font-size: 14px;
+  color: #ccc;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Otaku Helper | Discussion Thread</title>
+    <link rel="stylesheet" href="threads.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Main Header -->
+    <header class="main-header">
+        <nav>
+            <button class="menu-button" onclick="openSidebar()">☰</button>
+            <a href="index.html" class="logo-title">
+                <img src="C:\Users\palak anand\OneDrive\Desktop\renders\Blue and Magenta Gradient Modern Concert Event Desktop Prototype.png"
+                     alt="Otaku Helper Logo" class="logo">
+                <h1>Otaku Helper</h1>
+            </a>
+            <div class="auth-buttons" id="authButtonsContainer">
+                <button id="loginBtn" class="auth-btn">Login</button>
+                <button id="registerBtn" class="auth-btn">Register</button>
+                <button id="logoutBtn" class="auth-btn" style="display: none;">Logout</button>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Sidebar -->
+    <div id="sidebar" class="sidebar">
+        <button class="close-btn" onclick="closeSidebar()">×</button>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="genre.html">Genre</a></li>
+            <li><a href="quiz.html">Quiz</a></li>
+            <li><a href="Threads.html">Threads</a></li>
+            <li><a href="#" id="randomAnimeLink">Random</a></li>
+            <li><a href="analytics.html">Otaku Nexus</a></li>
+            <li><a href="profile.html">Profile</a></li>
+        </ul>
+    </div>
+
+    <!-- Auth Modal -->
+    <div id="authModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <div id="loginForm">
+                <h2>Login</h2>
+                <input type="email" id="loginEmail" placeholder="Email" required>
+                <input type="password" id="loginPassword" placeholder="Password" required>
+                <button id="submitLogin">Login</button>
+                <p>Don't have an account? <a href="#" id="switchToRegister">Register</a></p>
+            </div>
+            <div id="registerForm" style="display: none;">
+                <h2>Register</h2>
+                <input type="text" id="registerUsername" placeholder="Username" required>
+                <input type="email" id="registerEmail" placeholder="Email" required>
+                <input type="password" id="registerPassword" placeholder="Password" required>
+                <button id="submitRegister">Register</button>
+                <p>Already have an account? <a href="#" id="switchToLogin">Login</a></p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Thread Container -->
+    <div class="thread-container">
+        <!-- Thread Header -->
+        <div class="thread-header">
+            <h1>OTAKU CHATTERS !</h1>
+            <p>Join the conversation about your favorite anime!</p>
+        </div>
+
+        <!-- Comment Form -->
+        <div class="comment-form">
+            <div class="form-header">
+                <h3>Post a Comment</h3>
+            </div>
+            <textarea placeholder="Share your thoughts about anime..." id="commentText"></textarea>
+            <button id="postComment">Post Comment</button>
+            <p id="loginPrompt" style="display: none;">Please <a href="#" id="loginLink">login</a> to post comments</p>
+        </div>
+
+        <!-- Thread Comments -->
+        <div class="thread-comments" id="commentsSection">
+            <!-- Comments will be loaded here -->
+            <div class="loading">Loading threads...</div>
+        </div>
+    </div>
+
+    <script>
+        function openSidebar() {
+            document.getElementById("sidebar").style.width = "250px";
+        }
+    
+        function closeSidebar() {
+            document.getElementById("sidebar").style.width = "0";
+        }
+    </script>
+
+    <script src="auth.js"></script>
+    <script src="thread.js"></script>
+</body>
+</html>

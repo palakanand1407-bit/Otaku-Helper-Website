@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Otaku Helper | Profile</title>
+    <link rel="stylesheet" href="profile.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <!-- Header Section -->
+    <header>
+        <nav>
+            <button class="menu-button" onclick="openSidebar()">☰</button>
+            <a href="index.html" class="logo-title">
+                <img src="C:\Users\palak anand\OneDrive\Desktop\renders\Blue and Magenta Gradient Modern Concert Event Desktop Prototype.png" 
+                     alt="Otaku Helper Logo" class="logo">
+                <h1>Otaku Helper</h1>
+            </a>
+        </nav>
+    </header>
+
+    <!-- Sidebar -->
+    <div id="sidebar" class="sidebar">
+        <button class="close-btn" onclick="closeSidebar()">×</button>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="genre.html">Genre</a></li>
+            <li><a href="quiz.html">Quiz</a></li>
+            <li><a href="Threads.html">Threads</a></li>
+            <li><a href="#" id="randomAnimeLink">Random</a></li>
+            <li><a href="analytics.html">Otaku Nexus</a></li>
+            <li><a href="profile.html">Profile</a></li>
+        </ul>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-container">
+        <div class="profile-container">
+            <!-- Avatar Section -->
+            <div class="avatar-section">
+                <div class="avatar-wrapper">
+                    <img src="https://i.imgur.com/Jz5ZQ0z.png" alt="User Avatar" class="avatar" id="currentAvatar">
+                    <div class="avatar-hover-text">Change Avatar</div>
+                </div>
+            </div>
+
+            <!-- Info Section -->
+            <div class="info-section">
+                <h1 class="username" id="username">Otaku_1099</h1>
+                <p class="email" id="email">animefan@otakuhelper.com</p>
+                <button class="logout-btn" onclick="logout()">Logout</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Avatar Selection Modal -->
+    <div class="modal-overlay" id="avatarModal">
+        <div class="modal-content">
+            <h2>Choose Your Avatar</h2>
+            <div class="avatar-grid">
+                <div class="avatar-option" data-avatar="1">
+                    <img src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/ebcc76b1-a291-46fb-ba76-70358b192cd7/dh9oj9s-e1a0640e-19b3-43b8-9e72-085fe9c89e4e.jpg/v1/crop/w_467,h_700,x_0,y_0,scl_0.4560546875,q_70,strp/no_idea_what_this_is__d_by_alexitotheburrito_dh9oj9s-350t-2x.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9MTUzNiIsInBhdGgiOiJcL2ZcL2ViY2M3NmIxLWEyOTEtNDZmYi1iYTc2LTcwMzU4YjE5MmNkN1wvZGg5b2o5cy1lMWEwNjQwZS0xOWIzLTQzYjgtOWU3Mi0wODVmZTljODllNGUuanBnIiwid2lkdGgiOiI8PTEwMjQifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6aW1hZ2Uub3BlcmF0aW9ucyJdfQ.D9vLeOvNpFc0CirMZOC3WutgbH7s6qgnADb7GqVJY78" alt="Avatar 1">
+                </div>
+                <div class="avatar-option" data-avatar="2">
+                    <img src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/393ab1a3-1fb7-497c-91e9-6c25fefe3062/dghr9eg-8a97b586-7543-4e33-8d14-3174eef6aea9.jpg/v1/fill/w_464,h_700,q_70,strp/anime_girls_by_amanyu8_dghr9eg-350t-2x.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9MTMwNCIsInBhdGgiOiJcL2ZcLzM5M2FiMWEzLTFmYjctNDk3Yy05MWU5LTZjMjVmZWZlMzA2MlwvZGdocjllZy04YTk3YjU4Ni03NTQzLTRlMzMtOGQxNC0zMTc0ZWVmNmFlYTkuanBnIiwid2lkdGgiOiI8PTg2NCJ9XV0sImF1ZCI6WyJ1cm46c2VydmljZTppbWFnZS5vcGVyYXRpb25zIl19.yi9XW88YoUAok9uIRBQRVaCVsngtSahE_mNmJ0Da2dk" alt="Avatar 2">
+                </div>
+                <div class="avatar-option" data-avatar="3">
+                    <img src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/1f802150-66ea-43cc-8f5b-a0ceb24350ea/dh8sck0-ab63b122-57a9-497a-aaf9-27e681965127.png/v1/crop/w_467,h_700,x_0,y_0,scl_0.13030133928571,q_70,strp/blue_hair_anime_girl_by_elffyie_dh8sck0-350t-2x.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9NTM3NiIsInBhdGgiOiJcL2ZcLzFmODAyMTUwLTY2ZWEtNDNjYy04ZjViLWEwY2ViMjQzNTBlYVwvZGg4c2NrMC1hYjYzYjEyMi01N2E5LTQ5N2EtYWFmOS0yN2U2ODE5NjUxMjcucG5nIiwid2lkdGgiOiI8PTM1ODQifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6aW1hZ2Uub3BlcmF0aW9ucyJdfQ.dLBwHLGDx4Xz5CVdz-lRwnjJ4VwLgf5O-gdtBuqoFEc" alt="Avatar 3">
+                </div>
+                <div class="avatar-option" data-avatar="4">
+                    <img src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/9e9cbc2b-ee27-41b4-ba27-88af1df311e4/dgo2zfs-a04c8285-4680-4e3a-9823-0051a90d3fe3.png/v1/crop/w_387,h_700,x_0,y_0,scl_0.26875/fire_phoenix_by_uyyyy99_dgo2zfs-350t-2x.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9MjMxOSIsInBhdGgiOiJcL2ZcLzllOWNiYzJiLWVlMjctNDFiNC1iYTI3LTg4YWYxZGYzMTFlNFwvZGdvMnpmcy1hMDRjODI4NS00NjgwLTRlM2EtOTgyMy0wMDUxYTkwZDNmZTMucG5nIiwid2lkdGgiOiI8PTEyODAifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6aW1hZ2Uub3BlcmF0aW9ucyJdfQ.ngb-pYR5I6XuD1ETROoMnvVCtQ6hfwkgd0JsH6bO5Sk" alt="Avatar 4">
+                </div>
+                <div class="avatar-option" data-avatar="5">
+                    <img src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/9e9cbc2b-ee27-41b4-ba27-88af1df311e4/dgl6t3r-c92b0927-1927-4323-8285-3ff4624e1b9b.png/v1/crop/w_387,h_700,x_0,y_0,scl_0.17916666666667/time_travel__1__by_uyyyy99_dgl6t3r-350t-2x.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9MjMxOSIsInBhdGgiOiJcL2ZcLzllOWNiYzJiLWVlMjctNDFiNC1iYTI3LTg4YWYxZGYzMTFlNFwvZGdsNnQzci1jOTJiMDkyNy0xOTI3LTQzMjMtODI4NS0zZmY0NjI0ZTFiOWIucG5nIiwid2lkdGgiOiI8PTEyODAifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6aW1hZ2Uub3BlcmF0aW9ucyJdfQ.89BOP8ckOiroFOTpVqlhHhLLpxTZYub2EsKugsfRUrg" alt="Avatar 5">
+                </div>
+                <div class="avatar-option" data-avatar="6">
+                    <img src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/9e9cbc2b-ee27-41b4-ba27-88af1df311e4/dgm36sd-92908209-e024-48a5-9937-3662ddb78172.png/v1/crop/w_387,h_700,x_0,y_0,scl_0.17916666666667/fairy__1__by_uyyyy99_dgm36sd-350t-2x.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9MjMxOSIsInBhdGgiOiJcL2ZcLzllOWNiYzJiLWVlMjctNDFiNC1iYTI3LTg4YWYxZGYzMTFlNFwvZGdtMzZzZC05MjkwODIwOS1lMDI0LTQ4YTUtOTkzNy0zNjYyZGRiNzgxNzIucG5nIiwid2lkdGgiOiI8PTEyODAifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6aW1hZ2Uub3BlcmF0aW9ucyJdfQ.MwRU8B5IpgQbwkU4z0y8Eo3Jdfzhpgovyvy8b_Zj4qM" alt="Avatar 6">
+                </div>
+            </div>
+            <button class="close-modal" id="closeModal">
+                <i class="fas fa-times"></i> Close
+            </button>
+        </div>
+    </div>
+
+    <script>
+        function openSidebar() {
+            document.getElementById("sidebar").style.width = "250px";
+        }
+    
+        function closeSidebar() {
+            document.getElementById("sidebar").style.width = "0";
+        }
+    </script>
+
+    <script src="profile.js"></script>
+</body>
+</html>

@@ -1,0 +1,282 @@
+/* General page styling */
+body {
+    background: linear-gradient(90deg, #5b0043, #48006f, #7a4bf1);
+    color: #ffffff;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+/* Header section */
+header {
+    background-color: #410046;
+    padding: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: space-beteen;
+}
+
+/* Navigation Bar */
+nav {
+    display: flex;               /* allows flex layout for children */
+    align-items: center;         /* vertically centers items */
+    justify-content: flex-start; /* aligns content to the left */
+    padding: 0 20px; 
+}
+
+/* Menu button (for mobile navigation in the future) */
+.menu-button {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
+    margin-right: -20px;
+}
+
+.logo-title {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-left: 30px;  /* controls distance from left edge */
+    text-decoration: none;
+    color: white;
+}
+
+
+.logo-title:hover {
+    opacity: 0.8; /* Adds a slight hover effect */
+}
+
+/* Logo Styling */
+.logo {
+    width: 70px;
+    height: 70px;
+}
+
+/* Website Title */
+.logo-title h1 {
+    font-size: 28px;
+    margin: 0;
+    font-weight: bold;
+}
+
+/* Navigation Links */
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 150px;
+    padding: 10;
+    margin: 20;
+}
+
+/* Navigation Link Styling */
+nav ul li a {
+    text-decoration: none;
+    color: white;
+    font-size: 18px;
+    transition: 0.3s;
+}
+
+nav ul li a:hover {
+    color: #aa00ff;
+}
+
+/* Sign In Button Styling */
+.signin-btn {
+    padding: 10px 30px;
+    background: linear-gradient(45deg, #ff6b81, #ffb142);
+    border: none;
+    border-radius: 25px;
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    text-decoration: none;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+/* Hover Effect for Sign In Button */
+.signin-btn:hover {
+    background: linear-gradient(45deg, #ffb142, #ff6b81);
+    transform: scale(1.05);
+    box-shadow: 0 8px 15px rgba(254, 254, 254, 0.3);
+}
+
+
+
+/* Welcome Section */
+.welcome-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 50px;
+    gap: -10px;
+}
+
+.clickable-logo-title  {
+    font-size: 32px; /* Adjust title size */
+    font-weight: bold;
+    color: white !important;
+    text-decoration: none !important;
+    
+}
+
+/* Left Section: Logo, Search Bar, and Features */
+.left-section {
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    
+}
+
+/* Logo Centered Above Title */
+.left-section .logo {
+    width: 200px;
+    height: 200px;
+    margin-bottom: -50px;
+   
+}
+
+/* Search Bar */
+.search-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 20px;
+
+}
+
+
+
+.search-button {
+    padding: 14px;
+    width: 60%;
+    background: linear-gradient(45deg, #ff6b81, #ffb142);
+    border: none;
+    color: white;
+    font-size: 18px;
+    border-radius: 25px;
+    cursor: pointer;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none; /* So it doesn't look like a link */
+    display: inline-block;
+}
+.search-button:hover {
+    opacity: 0.9;
+}
+
+
+/* Features List */
+.features {
+    text-align: match parent;
+    margin-top: 10px;
+    font-size: 20px;
+}
+
+.features ul {
+    list-style: none;
+    padding: 0;
+}
+
+.features ul li {
+    margin-bottom: 12px;
+    padding-left: 25px;
+    position: relative;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+/* Auto-Scrolling Anime Card */
+.anime-carousel {
+    width: 60%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.anime-card-large {
+    width: 600px;
+    height: 450px;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 5px;
+    border-radius: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.anime-card-large img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+/* Sidebar Styling */
+.sidebar {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: rgba(44, 0, 53, 0.95);
+    overflow-x: hidden;
+    transition: 0.3s;
+    padding-top: 60px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Sidebar links */
+.sidebar ul {
+    list-style-type: none;
+    padding: 0;
+    width: 100%;
+    text-align: center;
+}
+
+.sidebar ul li {
+    padding: 15px;
+    width: 100%;
+}
+
+.sidebar ul li a {
+    text-decoration: none;
+    font-size: 20px;
+    color: white;
+    display: block;
+    transition: 0.3s;
+}
+
+.sidebar ul li a:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+/* Close button */
+.close-btn {
+    position: absolute;
+    top: 10px;
+    right: 25px;
+    font-size: 36px;
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+}
+
+.welcome-description {
+    font-size: 20px;  /* You can adjust this size as needed */
+    font-weight: 500;
+    margin-top: 10px;
+    line-height: 1.6;
+    color: #f0f0f0;
+}
+
