@@ -23,7 +23,7 @@ A special highlight of the website is the AI-based quiz feature, which enhances 
 
 Users answer a set of questions about their interests, and based on their responses, the system suggests the anime genre that best matches their personality and viewing preferences.
 
-The quiz feature is powered by a machine learning model using a Random Forest Classifier, achieving around 90% accuracy, ensuring reliable and personalized genre recommendations.
+The quiz feature is powered by a machine learning model using a Random Forest Classifier, achieving around 85% accuracy, ensuring reliable and personalized genre recommendations.
 
 This feature enhances user engagement and helps users discover new anime they may enjoy.
 
